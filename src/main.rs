@@ -79,10 +79,6 @@ impl Spider {
         let matches: Vec<&str> = binding.find_iter(&data).map(|x| x.as_str()).collect();
         println!("{:?}", matches);
         
-        // match rgx.find(&data) {
-        //     Some(x) => println!("{:?}: {:?}", x, rgx.find_iter(&data).map(|mat| mat.as_str())),
-        //     None    => unreachable!()
-        // }
     }
 
     fn save_response(self, filename: String, resp: &HashMap<String, String>) -> Result<(), Box<dyn std::error::Error>> {
@@ -112,8 +108,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // 2.) https://books.tosccrape.com:  cargo run bookstoscrape-spider https://books.tosccrape.com bookstoscrape.html 
 
     let args = parse_args();
-    // println!("{:?}", args);
-
     let spider = Spider::new(args.name);
     let spider2 = Spider::new(String::from("Parse-Spider"));
     
